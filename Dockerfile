@@ -1,13 +1,21 @@
-FROM --platform=linux/x86-64 node:lts-alpine
+# Use the official Node.js image as the base image
+FROM node:14
 
-# make the 'app' folder the current working directory
+# Set the working directory in the container
 WORKDIR /app
 
-# install simple http server for serving static content
-RUN npm install -g http-server
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
-# copy dist folder to working directory
-COPY /dist . 
+# Install dependencies
+RUN npm install
 
+# Copy the rest of the application code to the working directory
+COPY . .
+
+# Expose port 8080
 EXPOSE 8080
-CMD [ "http-server" ]
+
+# Start the Vue.js application
+CMD ["npm", "run", "serve"]
+
