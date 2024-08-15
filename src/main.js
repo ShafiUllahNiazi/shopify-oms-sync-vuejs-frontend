@@ -15,7 +15,7 @@ window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) 
 Vue.prototype.$API_TOKEN = url_params.API_TOKEN;
 Vue.prototype.$shop = url_params.shop;
 Vue.prototype.$plan_name = url_params.plan_name;
-Vue.prototype.$backendURL = "http://65.108.70.154:8000"
+Vue.prototype.$backendURL = "https://api.organictravellerstech.com"
 
 //Vue.prototype.$API_TOKEN = "Token%208c7f95186eae625931ace29c2608488263f6015c";
 //Vue.prototype.$shop = "ennovagon-app-test.myshopify.com";
