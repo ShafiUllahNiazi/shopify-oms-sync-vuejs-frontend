@@ -57,10 +57,10 @@ export default {
     getLogs() {
       debugger
       this.loading_data = true;
-      this.$Axios.get(this.$backendURL + "/oms/logs?limit=" + this.limit_filter, {
-        // headers: {
-        //   'Authorization': this.$API_TOKEN.replace('%20', ' ')
-        // }
+      this.$Axios.get(this.$backendURL + "/oms/logs?shop=" + this.$shop + "&limit=" + this.limit_filter, {
+        headers: {
+          'Authorization': this.$API_TOKEN.replace('%20', ' ')
+        }
       }).then((response) => {
         this.logs = response.data.results;
         this.loading_data = false;
@@ -78,9 +78,9 @@ export default {
       if (this.next_page_url !== false) {
         this.loading_data = true;
         this.$Axios.get(this.next_page_url, {
-          // headers: {
-          //   'Authorization': this.$API_TOKEN.replace('%20', ' ')
-          // }
+          headers: {
+            'Authorization': this.$API_TOKEN.replace('%20', ' ')
+          }
         }).then((response) => {
           this.logs = response.data.results
           this.loading_data = false;
@@ -101,9 +101,9 @@ export default {
       if (this.previous_page_url !== false) {
         this.loading_data = true;
         this.$Axios.get(this.previous_page_url, {
-          // headers: {
-          //   'Authorization': this.$API_TOKEN.replace('%20', ' ')
-          // }
+          headers: {
+            'Authorization': this.$API_TOKEN.replace('%20', ' ')
+          }
         }).then((response) => {
           this.logs = response.data.results
           this.loading_data = false;
@@ -126,10 +126,10 @@ export default {
         
       
       this.loading_data = true;
-      this.$Axios.get(this.$backendURL + "/oms/logs?search=" + search, {
-        // headers: {
-        //   'Authorization': this.$API_TOKEN.replace('%20', ' ')
-        // }
+      this.$Axios.get(this.$backendURL + "/oms/logs?shop=" + this.$shop + "&search=" + search, {
+        headers: {
+          'Authorization': this.$API_TOKEN.replace('%20', ' ')
+        }
       }).then((response) => {
         this.logs = response.data.results;
         this.loading_data = false;
@@ -153,10 +153,10 @@ export default {
 
     syncInventory() {
       this.loading_data = true;
-      this.$Axios.get(this.$backendURL + "/oms/inventory_sync", {
-        // headers: {
-        //   'Authorization': this.$API_TOKEN.replace('%20', ' ')
-        // }
+      this.$Axios.get(this.$backendURL + "/oms/inventory_sync?shop=" + this.$shop, {
+        headers: {
+          'Authorization': this.$API_TOKEN.replace('%20', ' ')
+        }
       }).then((response) => {
         this.loading_data = false;
         this.snackbar_text = response.data
@@ -168,10 +168,10 @@ export default {
 
     syncPrice() {
       this.loading_data = true;
-      this.$Axios.get(this.$backendURL + "/oms/price_sync", {
-        // headers: {
-        //   'Authorization': this.$API_TOKEN.replace('%20', ' ')
-        // }
+      this.$Axios.get(this.$backendURL + "/oms/price_sync?shop=" + this.$shop, {
+        headers: {
+          'Authorization': this.$API_TOKEN.replace('%20', ' ')
+        }
       }).then((response) => {
         this.loading_data = false;
         this.snackbar_text = response.data
